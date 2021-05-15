@@ -1,13 +1,17 @@
-const path=require('path')
-module.exports={
-  mode:"production",
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  mode: 'production',
   entry: {
-    HUI:'./lib/index.tsx'
+    index: './lib/index.tsx'
+  },
+  resolve: {
+    extensions: ['.ts','.tsx','.js','.jsx']
   },
   output: {
     path: path.resolve(__dirname, 'dist/lib'),
-    library: 'HUI',
-    libraryTarget: "umd"
+    library: 'FUI',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
@@ -16,5 +20,12 @@ module.exports={
         loader: 'awesome-typescript-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title:'HUI',
+      template: 'index.html'
+    })
+  ]
+
 }
