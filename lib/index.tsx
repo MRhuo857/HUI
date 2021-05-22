@@ -1,5 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Button from './button';
+import Icon from './Icon';
 
-ReactDom.render(<Button/>,document.body)
+ReactDom.render(
+  <div>
+    <Icon name="qq"/>
+  </div>
+  ,document.body)
